@@ -21,7 +21,7 @@ public class msg {
 			 	System.out.println("Server has connected!");
 			 	BufferedReader isc = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			 	PrintWriter osc = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-			 	while(output != null||!output.toLowerCase().equals("exit")){
+			 	while(output != null||!output.toLowerCase().contains("/exit")){
 				 	if((input=isc.readLine())!= null){
 						System.out.println(input);
 				   	}
@@ -36,7 +36,7 @@ public class msg {
 				System.out.println("Client has connected to Server!");
 				BufferedReader is = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 				PrintWriter os = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-				while(output != null||!output.toLowerCase().equals("exit")){
+				while(output != null||!output.toLowerCase().contains("/exit")){
 					output = getInput2();
 					os.println(output);
 					os.flush();
